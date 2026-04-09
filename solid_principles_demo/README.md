@@ -2,15 +2,37 @@
 
 # SOLID Principles Demo
 
-Este proyecto demuestra los 5 principios SOLID en Python de manera clara y educativa. Cada principio se ilustra con ejemplos prácticos en una aplicación de consola.
+Este proyecto demuestra los 5 principios SOLID en Python de manera clara y educativa. Cada principio se ilustra con ejemplos prácticos en una aplicación de consola y con una interfaz gráfica interactiva usando Tkinter.
 
 ## Integrantes del Grupo
 José Andrés 
 
 ## Instrucciones para Ejecutar
+
+### Interfaz Gráfica (Recomendado)
+1. Asegúrate de tener Python 3.6+ instalado (Tkinter viene incluido).
+2. Navega al directorio `solid_principles_demo`.
+3. Ejecuta: `python main.py` o `python gui_app.py`
+
+### Versión Consola
 1. Asegúrate de tener Python 3.6+ instalado.
 2. Navega al directorio del proyecto.
 3. Ejecuta: `python -m solid_principles_demo.main`
+
+### Script de Prueba
+Para verificar que Tkinter funciona correctamente:
+```bash
+python test_gui.py
+```
+
+## Características de la GUI
+
+- **Ventana principal** con título "Demostración de los 5 Principios SOLID"
+- **5 botones grandes** para cada principio con explicaciones detalladas
+- **Área de texto** con scroll para visualizar la salida de cada ejemplo
+- **Botón "Ejecutar Todos"** para correr todas las demostraciones en secuencia
+- **Botón "Limpiar"** para borrar el área de texto
+- **Botón "Salir"** para cerrar la aplicación
 
 ## Principios SOLID
 
