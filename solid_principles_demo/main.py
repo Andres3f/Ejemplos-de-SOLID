@@ -4,11 +4,19 @@ Ejecuta todos los ejemplos de los principios SOLID.
 Este archivo importa y ejecuta un ejemplo demostrativo de cada principio.
 """
 
-from .srp.good_report import ReportService, ReportGenerator, EmailSender
-from .ocp.discount import ShoppingCart, ChristmasDiscount, VIPDiscount
-from .lsp.good_shapes import Rectangle, Square
-from .isp.good_printer import SimplePrinter, MultiFunctionPrinter
-from .dip.notification import NotificationService, EmailSender as DipEmailSender, SmsSender
+try:
+    from .srp.good_report import ReportService, ReportGenerator, EmailSender
+    from .ocp.discount import ShoppingCart, ChristmasDiscount, VIPDiscount
+    from .lsp.good_shapes import Rectangle, Square
+    from .isp.good_printer import SimplePrinter, MultiFunctionPrinter
+    from .dip.notification import NotificationService, EmailSender as DipEmailSender, SmsSender
+except ImportError:
+    # Importación absoluta para ejecución directa
+    from srp.good_report import ReportService, ReportGenerator, EmailSender
+    from ocp.discount import ShoppingCart, ChristmasDiscount, VIPDiscount
+    from lsp.good_shapes import Rectangle, Square
+    from isp.good_printer import SimplePrinter, MultiFunctionPrinter
+    from dip.notification import NotificationService, EmailSender as DipEmailSender, SmsSender
 
 
 def demonstrate_srp():
@@ -90,4 +98,16 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # Importar y lanzar la aplicación GUI
+    try:
+        from .gui_app import main as gui_main
+        gui_main()
+    except ImportError:
+        # Intentar importación absoluta
+        try:
+            from gui_app import main as gui_main
+            gui_main()
+        except ImportError:
+            # Si hay error importando la GUI, ejecutar versión consola
+            print("No se pudo importar la GUI. Ejecutando versión consola...")
+            main()
