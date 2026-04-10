@@ -5,7 +5,10 @@
 Este proyecto demuestra los 5 principios SOLID en Python de manera clara y educativa. Cada principio se ilustra con ejemplos prácticos en una aplicación de consola y con una interfaz gráfica interactiva usando Tkinter.
 
 ## Integrantes del Grupo
-José Andrés 
+José Andres Alvarez Cardona 0907-22-11608
+Juana Yessenia Ramírez Santiago 0907-22-13755
+Diana Paola Rivas Arana 0907-22-15036
+Jorge Antonio Hernández Nájera 0907-20-23870
 
 ## Instrucciones para Ejecutar
 
