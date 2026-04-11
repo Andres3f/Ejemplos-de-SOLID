@@ -185,7 +185,42 @@ Permite extender el comportamiento de una clase sin modificar su código existen
 - ChristmasDiscount y VIPDiscount extienden sin modificar el código existente
 - ShoppingCart depende de la abstracción, no de implementaciones concretas
 
-Beneficio: Para agregar un nuevo descuento (ej. BlackFridayDiscount), solo creamos una nueva clase, sin tocar ShoppingCart ni las existentes."""
+Beneficio: Para agregar un nuevo descuento (ej. BlackFridayDiscount), solo creamos una nueva clase, sin tocar ShoppingCart ni las existentes.
+
+Ejemplo de Código:
+
+```python
+from abc import ABC, abstractmethod
+
+class Discount(ABC):
+    @abstractmethod
+    def apply(self, price: float) -> float:
+        pass
+
+class ChristmasDiscount(Discount):
+    def apply(self, price: float) -> float:
+        return price * 0.9  # 10% descuento
+
+class VIPDiscount(Discount):
+    def apply(self, price: float) -> float:
+        return price * 0.8  # 20% descuento
+
+class ShoppingCart:
+    def __init__(self, discount: Discount):
+        self.discount = discount
+
+    def checkout(self, price: float) -> float:
+        return self.discount.apply(price)
+
+# Ejemplo de uso
+if __name__ == "__main__":
+    cart_christmas = ShoppingCart(ChristmasDiscount())
+    cart_vip = ShoppingCart(VIPDiscount())
+    price = 100.0
+    print(f"Precio original: ${price}")
+    print(f"Con descuento de Navidad: ${cart_christmas.checkout(price)}")
+    print(f"Con descuento VIP: ${cart_vip.checkout(price)}")
+```"""
         
         self.capture_output(demonstrate_ocp, explanation)
     
